@@ -32,9 +32,12 @@ namespace DataSolution
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
+            DB_128040_practiceEntities db = new DB_128040_practiceEntities();
+            var cust = db.Customers.Where(x => x.State == "California");
             if (CmbBoxSelect.SelectedIndex==0)
             {
                 MessageBox.Show("CustomerID");
+                MessageBox.Show($"There are {cust.Count()}");
 
             }
             if (CmbBoxSelect.SelectedIndex==1)
